@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const gender = [
@@ -125,25 +125,28 @@ class CharacterCreationPage extends Component {
     render() {
         return (
             <div>
-                {JSON.stringify(this.state)}
+                {/* {JSON.stringify(this.state)} */}
                 <form onSubmit={this.handleSubmit} >
                     <TextField
                         id="standard-name"
                         label="Character Name"
                         value={this.state.character_name}
                         onChange={this.handleCharacterName}
+                        style={{ width: 200, margin: 10 }}
                         margin="normal"
+                        className="input"
                     />
                     <TextField
                         id="select-gender"
                         select
                         label="Select"
-                        // className={classes.textField}
+                        className="input"
                         value={this.state.gender}
                         onChange={this.handleGender}
+                        style={{ width: 150, margin: 10 }}
                         SelectProps={{
                             MenuProps: {
-                                // className: classes.menu,
+                                // className: input.menu,
                             },
                         }}
                         helperText="Select Gender"
@@ -159,9 +162,10 @@ class CharacterCreationPage extends Component {
                         id="select-race"
                         select
                         label="Select"
-                        // className={classes.textField}
+                        className="input"
                         value={this.state.race}
                         onChange={this.handleRace}
+                        style={{ width: 100, margin: 10 }}
                         SelectProps={{
                             MenuProps: {
                                 // className: classes.menu,
@@ -180,9 +184,10 @@ class CharacterCreationPage extends Component {
                         id="select-person-class"
                         select
                         label="Select"
-                        // className={classes.textField}
+                        className="input"
                         value={this.state.person_class}
                         onChange={this.handlePersonClass}
+                        style={{ width: 100, margin: 10 }}
                         SelectProps={{
                             MenuProps: {
                                 // className: classes.menu,
@@ -201,9 +206,10 @@ class CharacterCreationPage extends Component {
                         id="select-alignment"
                         select
                         label="Select"
-                        // className={classes.textField}
+                        className="input"
                         value={this.state.alignment}
                         onChange={this.handleAlignment}
+                        style={{ width: 100, margin: 10 }}
                         SelectProps={{
                             MenuProps: {
                                 // className: classes.menu,
@@ -224,6 +230,8 @@ class CharacterCreationPage extends Component {
                         value={this.state.background}
                         onChange={this.handleBackground}
                         margin="normal"
+                        className="input"
+                        style={{ width: 450, margin: 10}}
 
                     />
                     <button variant="contained" color="primary" >Submit</button>
