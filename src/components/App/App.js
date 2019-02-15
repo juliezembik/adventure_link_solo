@@ -16,8 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-
+import MapContainer from '../MapContainer/MapContainer';
 import './App.css';
 import CharacterCreationPage from '../CharacterCreationPage/CharacterCreationPage';
 
@@ -60,8 +59,8 @@ class App extends Component {
             they will see the info page instead. */}
             <ProtectedRoute
               exact
-              path="/info"
-              component={InfoPage}
+              path="/mapcontainer"
+              component={MapContainer}
             />
             <ProtectedRoute
               exact

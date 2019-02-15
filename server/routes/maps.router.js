@@ -1,11 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
-const API_KEY = process.env.API_KEY;
 
 router.get('/', (req, res) => {
-    axios({
-        method: 'GET', 
-        url: `BASE`
-    })
+    // pool query here
+    res.send([
+        {
+            lat: 44.978031,
+            lng: -93.2656897,
+            text:'Prime Digital Academy'
+        },
+        {
+            lat: 44.9789569,
+            lng: -93.2667679,
+            text: 'Subway'
+        },
+    ])
 });
+
+module.exports = router;

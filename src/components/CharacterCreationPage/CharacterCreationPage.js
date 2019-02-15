@@ -62,9 +62,10 @@ const alignment = [
 
 
 class CharacterCreationPage extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
+            character_id: props.user.id,
             character_name: '',
             gender: '',
             race: '',
@@ -125,7 +126,7 @@ class CharacterCreationPage extends Component {
     render() {
         return (
             <div>
-                {/* {JSON.stringify(this.state)} */}
+                {JSON.stringify(this.state)}
                 <form onSubmit={this.handleSubmit} >
                     <TextField
                         id="standard-name"
@@ -241,4 +242,6 @@ class CharacterCreationPage extends Component {
     }
 }
 
-export default connect()(CharacterCreationPage);
+const mapStateToProps = ({ user }) => ({ user });
+
+export default connect(mapStateToProps)(CharacterCreationPage);

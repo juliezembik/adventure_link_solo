@@ -7,7 +7,7 @@ function* getCharacter() {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
         };
-        const response = yield axios.get('/api/character', config);
+        const response = yield axios.get(`/api/character/`, config);
         yield put({ type: 'GET_CHARACTER', payload: response.data });
     } catch (error) {
         console.log('Character get request failed', error);

@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
-import characterPersonReducer from './characterPersonReducer';
+import character from './characterPersonReducer';
+import map from './mapReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   user, // will have an id and username if someone is logged in
-  characterPersonReducer, // contains character created by user
+  character, // contains character created by user
+  map, //sends items with lng and lat to append onto the map
 });
 
 export default rootReducer;
