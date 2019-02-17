@@ -1,4 +1,7 @@
-const characterPersonReducer = (state = {}, action) => {
+import { combineReducers } from 'redux';
+
+
+const characterPersonReducer = (state = [], action) => {
     switch(action.type) {
         case 'GET_CHARACTER':
             return action.payload;
@@ -9,5 +12,16 @@ const characterPersonReducer = (state = {}, action) => {
     }
 };
 
+const getUserCharacter = (state = '', action) => {
+    switch(action.type) {
+        case 'GET_USER_CHARACTER':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
-export default characterPersonReducer;
+export default combineReducers({
+    characterPersonReducer,
+    getUserCharacter,
+});

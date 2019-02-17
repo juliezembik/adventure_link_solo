@@ -57,6 +57,7 @@ class SimpleMap extends Component {
                     );
                     
                 })}
+                
                     
                 </GoogleMapReact>
             </div>

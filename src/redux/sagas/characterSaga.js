@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 function* getCharacter() {
     try {
@@ -15,6 +15,24 @@ function* getCharacter() {
     }
 }
 
+function* getUserCharacter(action) {
+    try {
+        console.log('action.payload', action.payload);
+        
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+        };
+        const id = action.payload;        
+        const response = yield axios.get(`api/character/${id}`, config);
+        console.log('response.data', response.data);
+        const nextAction = { type: 'GET_CHARACTER', payload: response.data}
+        yield put(nextAction);
+    }   catch (error) {
+        console.log('Get User Character request failed', error);
+    }
+}
+
 function* addCharacter(action) {
     try {
         yield axios.post('/api/character/create', action.payload);
@@ -27,8 +45,9 @@ function* addCharacter(action) {
 }
 
 function* characterSaga() {
-    yield takeLatest('FETCH_CHARACTER', getCharacter);
+    yield takeEvery('FETCH_CHARACTER', getCharacter);
     yield takeEvery('ADD_CHARACTER', addCharacter);
+    yield takeLatest('GET_USER_CHARACTER', getUserCharacter);
 }
 
 export default characterSaga;

@@ -79,6 +79,7 @@ class CharacterCreationPage extends Component {
         event.preventDefault();
         const action = { type: 'ADD_CHARACTER', payload: this.state }
         this.props.dispatch(action);
+        this.props.history.push('/home');
     }
 
     handleCharacterName = (event) => {

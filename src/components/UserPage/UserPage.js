@@ -12,11 +12,18 @@ class UserPage extends Component {
   }
 
   getUserCharacter = () => {
-    const action = { type: 'FETCH_CHARACTER' };
+    const action = { type: 'GET_USER_CHARACTER', payload: this.props.user.id };
     this.props.dispatch(action)
   }
 
   render() {
+
+    if(this.props.character.length === 0) {
+      console.log('Character', this.props.character);
+      
+      this.props.history.push('/charactercreate'); 
+    } 
+
     return (
       <div>
         <h1 id="welcome">
@@ -24,12 +31,25 @@ class UserPage extends Component {
     </h1>
         <p>Your ID is: {this.props.user.id}</p>
         {JSON.stringify(this.props.character)}
-        {/* <p>Character Name: {this.state.}</p> */}
+        <div>
+          {this.props.character.map((userChara, i) => {
+            return (
+              <div key={i}>
+                <p>Name: {userChara.character_name}</p>
+                <p>Gender: {userChara.gender}</p>
+                <p>Alignment: {userChara.alignment}</p>
+                <p>Race: {userChara.race}</p>
+                <p>Class: {userChara.person_class}</p>
+                <p>Background: {userChara.background}</p>
+              </div>
+            )
+          })}
+        </div>
 
         <LogOutButton className="log-in" />
       </div>
     );
-    
+
   }
 
 }
@@ -39,7 +59,7 @@ class UserPage extends Component {
 // const mapStateToProps = ({user}) => ({ user });
 const mapStateToProps = (state) => ({
   user: state.user,
-  character: state.character,
+  character: state.character.characterPersonReducer,
 });
 
 // this allows us to use <App /> in index.js

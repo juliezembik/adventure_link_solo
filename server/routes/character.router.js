@@ -5,19 +5,19 @@ const router = express.Router();
 /**
  * GET route template
  */
-// router.get('/', (req, res) => {
-//     if (req.isAuthenticated()) {
-//         const queryText = `SELECT * FROM "person_character";`;
-//         pool.query(queryText)
-//             .then((result) => {
-//                 res.send(result.rows)
-//                 console.log('Result.rows', result.rows);
-//             }).catch((error) => {
-//                 console.log('Something went wrong in GET /person character', error);
-//                 res.sendStatus(500);
-//             });
-//     }
-// });
+router.get('/', (req, res) => {
+    if (req.isAuthenticated()) {
+        const queryText = `SELECT * FROM "person_character";`;
+        pool.query(queryText)
+            .then((result) => {
+                res.send(result.rows)
+                console.log('Result.rows', result.rows);
+            }).catch((error) => {
+                console.log('Something went wrong in GET /person character', error);
+                res.sendStatus(500);
+            });
+    }
+});
 
 router.get('/:id', (req, res) => {
     if (req.isAuthenticated()) {
