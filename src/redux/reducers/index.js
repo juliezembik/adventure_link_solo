@@ -4,6 +4,7 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import character from './characterPersonReducer';
 import map from './mapReducer';
+import item from './itemsReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   character, // contains character created by user
   map, //sends items with lng and lat to append onto the map
+  item, //calls items from data base
 });
 
 export default rootReducer;

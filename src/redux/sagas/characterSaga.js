@@ -44,10 +44,28 @@ function* addCharacter(action) {
     }
 }
 
+function* updateCharacter(action) {
+    try {
+        const id = action.payload.id;
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+        };
+        const response = yield axios.put(`api/character/${id}`, config);
+        console.log('updateCharacter response: ', response.data);
+        const nextAction = { type: 'GET_USER_CHARACTER', payload: response.data };
+        yield put(nextAction);
+    } catch (error) {
+        console.log('Unable to update character', error);
+        
+    }
+}
+
 function* characterSaga() {
     yield takeEvery('FETCH_CHARACTER', getCharacter);
     yield takeEvery('ADD_CHARACTER', addCharacter);
     yield takeLatest('GET_USER_CHARACTER', getUserCharacter);
+    yield takeLatest('UPDATE_CHARACTER', updateCharacter);
 }
 
 export default characterSaga;

@@ -14,7 +14,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
+import ItemDetails from '../ItemDetails/ItemDetails';
 import UserPage from '../UserPage/UserPage';
 import MapContainer from '../MapContainer/MapContainer';
 import './App.css';
@@ -43,8 +43,8 @@ class App extends Component {
             This is a route anyone can see, no login necessary */}
             <Route
               exact
-              path="/about"
-              component={AboutPage}
+              path="/items"
+              component={ItemDetails}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.

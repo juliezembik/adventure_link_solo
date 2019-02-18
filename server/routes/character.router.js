@@ -1,6 +1,8 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+
 
 /**
  * GET route template
@@ -40,6 +42,22 @@ router.get('/:id', (req, res) => {
     }
 });
 
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    const queryText = `UPDATE "person_character"
+                       SET "character_name" = '${req.body.character_name}',
+                       "gender" = '${req.body.gender}',
+                       "person_class" = '${req.body.person_class}',
+                       "alignment" = '${req.body.alignment}',
+                       "background" = '${req.body.background}'
+                       WHERE "character_id" = $1;`;
+    pool.query(queryText, [req.params.id])
+    .then((update) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error in PUT', error);
+        res.sendStatus(500);
+    })
+});
 
 /**
  * POST route template

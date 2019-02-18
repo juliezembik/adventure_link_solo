@@ -7,6 +7,8 @@ const characterPersonReducer = (state = [], action) => {
             return action.payload;
         case 'ADD_CHARACTER':
             return action.payload;
+        case 'UPDATE_CHARACTER':
+            return action.payload;
         default:
             return state;
     }
