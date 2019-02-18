@@ -18,12 +18,11 @@ class UserPage extends Component {
 
   render() {
 
-    if(this.props.character.length === 0) {
+    if (this.props.character.length === 0) {
       console.log('Character', this.props.character);
-      
-      this.props.history.push('/charactercreate'); 
-    } 
 
+      this.props.history.push('/charactercreate');
+    }
     return (
       <div>
         <h1 id="welcome">
@@ -51,8 +50,8 @@ class UserPage extends Component {
     );
 
   }
-
 }
+
 
 // Instead of taking everything from state, we just want the user info.
 // if you wanted you could write this code like this:
