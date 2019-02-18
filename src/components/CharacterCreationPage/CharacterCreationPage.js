@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const gender = [
@@ -75,8 +75,7 @@ class CharacterCreationPage extends Component {
         }
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    handleSubmit = () => {
         const action = { type: 'ADD_CHARACTER', payload: this.state }
         this.props.dispatch(action);
         this.props.history.push('/home');
@@ -127,8 +126,8 @@ class CharacterCreationPage extends Component {
     render() {
         return (
             <div>
-                {JSON.stringify(this.state)}
-                <form onSubmit={this.handleSubmit} >
+                {/* {JSON.stringify(this.state)} */}
+                <form>
                     <TextField
                         id="standard-name"
                         label="Character Name"
@@ -236,7 +235,7 @@ class CharacterCreationPage extends Component {
                         style={{ width: 450, margin: 10}}
 
                     />
-                    <button variant="contained" color="primary" >Submit</button>
+                    <Button onClick={this.handleSubmit} variant="contained" color="primary" >Submit</Button>
                 </form>
             </div>
         );

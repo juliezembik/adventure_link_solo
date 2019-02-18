@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import './UserPage.css'
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -18,31 +19,32 @@ class UserPage extends Component {
 
   render() {
 
-    if (this.props.character.length === 0) {
+    if (Object.entries(this.props.character).length === 0) {
       console.log('Character', this.props.character);
 
       this.props.history.push('/charactercreate');
     }
+
+    const userChara = this.props.character;
     return (
       <div>
         <h1 id="welcome">
           Welcome, {this.props.user.username}!
     </h1>
         <p>Your ID is: {this.props.user.id}</p>
-        {JSON.stringify(this.props.character)}
+        {/* {JSON.stringify(this.props.character)} */}
         <div>
-          {this.props.character.map((userChara, i) => {
-            return (
-              <div key={i}>
-                <p>Name: {userChara.character_name}</p>
-                <p>Gender: {userChara.gender}</p>
-                <p>Alignment: {userChara.alignment}</p>
-                <p>Race: {userChara.race}</p>
-                <p>Class: {userChara.person_class}</p>
-                <p>Background: {userChara.background}</p>
-              </div>
-            )
-          })}
+            <div>
+              <p>Name: {userChara.character_name}</p>
+              <p>Gender: {userChara.gender}</p>
+              <p>Alignment: {userChara.alignment}</p>
+              <p>Race: {userChara.race}</p>
+              <p>Class: {userChara.person_class}</p>
+              <p>Background: {userChara.background}</p>
+            </div>
+
+          
+
         </div>
 
         <LogOutButton className="log-in" />

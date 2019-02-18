@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 
-const characterPersonReducer = (state = [], action) => {
+const characterPersonReducer = (state = {}, action) => {
     switch(action.type) {
         case 'GET_CHARACTER':
             return action.payload;

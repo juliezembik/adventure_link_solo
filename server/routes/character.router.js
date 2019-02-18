@@ -9,11 +9,16 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
+        //const queryText = `SELECT * FROM "person_character" WHERE "person_character"."person_id" = $1;`;
         const queryText = `SELECT * FROM "person_character";`;
-        pool.query(queryText)
+        pool.query(queryText, [req.user.id])
             .then((result) => {
-                res.send(result.rows)
-                console.log('Result.rows', result.rows);
+                if (result.rows.length > 0) {
+                    res.send(result.rows )
+                    console.log('Result.rows', result.rows);
+                } else {
+                    res.send({})
+                }
             }).catch((error) => {
                 console.log('Something went wrong in GET /person character', error);
                 res.sendStatus(500);
@@ -31,8 +36,12 @@ router.get('/:id', (req, res) => {
                            WHERE "person"."id" = $1;`;
         pool.query(queryText, [req.params.id])
             .then((result) => {
-                res.send(result.rows)
-                console.log('Result.rows', result.rows);
+                if (result.rows.length > 0) {
+                    res.send(result.rows[0])
+                    console.log('Result.rows', result.rows[0]);
+                } else {
+                    res.send({})
+                }
             }).catch((error) => {
                 console.log('Something went wrong in GET /person character', error);
                 res.sendStatus(500);
@@ -51,12 +60,12 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
                        "background" = '${req.body.background}'
                        WHERE "character_id" = $1;`;
     pool.query(queryText, [req.params.id])
-    .then((update) => {
-        res.sendStatus(200);
-    }).catch((error) => {
-        console.log('Error in PUT', error);
-        res.sendStatus(500);
-    })
+        .then((update) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error in PUT', error);
+            res.sendStatus(500);
+        })
 });
 
 /**

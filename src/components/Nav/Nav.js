@@ -7,7 +7,7 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <h2 className="nav-title">Prime Solo Project</h2>
+      <h2 className="nav-title">Adventure Link</h2>
     </Link>
     <div className="nav-right">
       <Link className="nav-link" to="/home">
@@ -22,13 +22,13 @@ const Nav = (props) => (
           <Link className="nav-link" to="/mapcontainer">
             Map
           </Link>
+          <Link className="nav-link" to="/items">
+            Items
+      </Link>
           <LogOutButton className="nav-link"/>
         </>
       )}
       {/* Always show this link since the about page is not protected */}
-      <Link className="nav-link" to="/items">
-        Items
-      </Link>
     </div>
   </div>
 );
