@@ -32,7 +32,7 @@ class UserPage extends Component {
           Welcome, {this.props.user.username}!
     </h1>
         <p>Your ID is: {this.props.user.id}</p>
-        {/* {JSON.stringify(this.props.character)} */}
+        {JSON.stringify(this.props.character)}
         <div>
             <div>
               <p>Name: {userChara.character_name}</p>

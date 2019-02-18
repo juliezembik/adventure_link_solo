@@ -1,6 +1,6 @@
-const getItem = ( state = [], action ) => {
+const getItem = ( state = {}, action ) => {
     switch (action.type) {
-        case 'FETCH_ITEM_DETAILS':
+        case 'GET_ITEM_DETAILS':
             return action.payload;
         default:
             return state;
