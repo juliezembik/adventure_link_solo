@@ -7,8 +7,9 @@ function* getItemDetails(action) {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
         };
-        const id = action.payload;
+        const id = action.payload.id;
         const response = yield axios.get(`/api/items/inventory/${id}`, config);
+        console.log('Log in getItemDetailSaga', response.data);
         yield put({ type: 'GET_ITEM_DETAILS', payload: response.data })
     } catch (error) {   
         console.log('Item detail request failed', error);
