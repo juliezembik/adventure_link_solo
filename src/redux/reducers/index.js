@@ -5,6 +5,8 @@ import user from './userReducer';
 import character from './characterPersonReducer';
 import map from './mapReducer';
 import item from './itemsReducer';
+import player from './playerOnMapReducer';
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +21,7 @@ const rootReducer = combineReducers({
   character, // contains character created by user
   map, //sends items with lng and lat to append onto the map
   item, //calls items from data base
+  player, //calls player sprite to move on map
 });
 
 export default rootReducer;

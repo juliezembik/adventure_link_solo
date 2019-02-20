@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Axios from 'axios';
 import { connect } from 'react-redux';
+import Player from './../Player/DefaultPlayer';
+import MapPotionItem from './MapPotionItem';
+// import Marker from 'google-map-react';
 
-
-const AnyReactComponent = ({ text }) => <div>{text} X</div>;
+// const AnyReactComponent = ({ text }) => <div>{text} X</div>;
 
 class SimpleMap extends Component {
     static defaultProps = {
         center: {
-            lat: 44.978031,
-            lng: -93.2656897
+            lat: 44.978180,
+            lng: -93.2634000
         },
-        zoom: 15
+        zoom: 19
     };
 
     componentDidMount() {
@@ -20,20 +21,8 @@ class SimpleMap extends Component {
     }
 
     getMap = () => {
-        Axios({
-            method: 'GET',
-            url: '/api/mapclient'
-        }).then((response) => {
-            console.log('in map GET', response);
-            const action = {
-                type: 'GET_MAP',
-                payload: response.data
-            };
+            const action = { type: 'FETCH_MAP' };
             this.props.dispatch(action)
-        }).catch((error) => {
-            console.log('Error in GET map', error);
-            
-        });
     }
 
     render() {
@@ -46,9 +35,14 @@ class SimpleMap extends Component {
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                 >
+                    <Player
+                        lat={this.props.center.lat}
+                        lng={this.props.center.lng}
+                    />
+                        
                 {this.props.map.map((waypoint, i) => {
                     return (
-                        <AnyReactComponent
+                        <MapPotionItem
                             key={i}
                             lat={waypoint.lat}
                             lng={waypoint.lng}

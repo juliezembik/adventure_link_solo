@@ -1,20 +1,19 @@
 const express = require('express');
 const router = express.Router();
+const pool = require('../modules/pool');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.get('/', (req, res) => {
-    // pool query here
-    res.send([
-        {
-            lat: 44.978031,
-            lng: -93.2656897,
-            text:'Prime Digital Academy'
-        },
-        {
-            lat: 44.9789569,
-            lng: -93.2667679,
-            text: 'Subway'
-        },
-    ])
+router.get('/', rejectUnauthenticated, (req, res) => {
+    const queryText = `SELECT "items"."lat", "items"."lng" FROM "items"
+                       WHERE "items" IS NOT NULL;`;
+    pool.query(queryText)
+    .then((result) => {
+        res.send(result.rows);
+        console.log('Lat and Lng in Maps: ', result.rows);
+    }).catch((error) => {
+        console.log('Something went wrong in Get Lat/Lng', error);
+        res.sendStatus(500);
+    });
 });
 
 module.exports = router;

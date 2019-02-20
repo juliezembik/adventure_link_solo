@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-
+//router retreives inventory via ID from database
 router.get('/inventory/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT "items"."item_name", "items"."item_description", "items"."item_img" FROM "items"
                        JOIN "holding_bag" ON "holding_bag"."item_id" = "items"."item_id"

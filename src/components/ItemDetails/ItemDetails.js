@@ -11,7 +11,7 @@ class ItemDetails extends Component {
 
     getItemsDetails = () => {
         const id = this.props.user.id;
-        const action = { type: 'FETCH_ITEM_DETAILS', payload: {id:id} };
+        const action = { type: 'FETCH_INVENTORY', payload: {id:id} };
         this.props.dispatch(action);
 
     }
@@ -21,9 +21,7 @@ class ItemDetails extends Component {
 
         return (
             <div>
-                <h2>Item Details</h2>
-                {JSON.stringify(this.props.item)}
-                {JSON.stringify(this.props.user.id)}
+                <h2>Inventory</h2>
                 {this.props.item.map((iDetails, i) => {
                     return (
                         <ItemDetailItems key={i} iDetails={iDetails} />
