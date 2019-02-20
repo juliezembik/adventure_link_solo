@@ -1,10 +1,12 @@
 
 //map reducer that appends googlemaps onto the dom
 const map = (state = [], action) => {
-    if( action.type === 'GET_MAP') {
-        return action.payload;
+    switch(action.type) {
+        case 'GET_MAP':
+            return action.payload;
+        default:
+            return state;
     }
-    return state;
-}
+};
 
 export default map;

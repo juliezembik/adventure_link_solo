@@ -16,8 +16,8 @@ function* getMapLocations() {
     }
 }
 
-function* sendMap() {
+function* mapSaga() {
     takeEvery('FETCH_MAP', getMapLocations);
 }
 
-export default sendMap;
+export default mapSaga;
