@@ -1,3 +1,9 @@
 div {
     display: center;
+    text-align: center;
+    border: 3px;
+}
+
+html {
+    background-color: #9B7874;
 }

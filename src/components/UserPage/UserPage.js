@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './UserPage.css'
+import Button from '@material-ui/core/Button';
+import ModalEdit from '../CharacterCreationPage/ModalEdit';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -17,6 +19,15 @@ class UserPage extends Component {
     this.props.dispatch(action)
   }
 
+  handleEdit = () => {
+    this.props.history.push('/edit');
+  }
+
+  openModal = (e) => {
+    e.preventDefault();
+    this.modal.open();
+  }
+
   render() {
 
     if (Object.entries(this.props.character).length === 0) {
@@ -28,9 +39,6 @@ class UserPage extends Component {
     const userChara = this.props.character;
     return (
       <div>
-        <h1 id="welcome">
-          Welcome, {this.props.user.username}!
-    </h1>
         {/* <p>Your ID is: {this.props.user.id}</p> */}
         {/* {JSON.stringify(this.props.character)} */}
         <div>
@@ -46,7 +54,7 @@ class UserPage extends Component {
           
 
         </div>
-
+        <ModalEdit />
         <LogOutButton className="log-in" />
       </div>
     );

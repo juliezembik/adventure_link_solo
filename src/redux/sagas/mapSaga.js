@@ -17,7 +17,7 @@ function* getMapLocations() {
 }
 
 function* mapSaga() {
-    takeEvery('FETCH_MAP', getMapLocations);
+    yield takeEvery('FETCH_MAP', getMapLocations);
 }
 
 export default mapSaga;

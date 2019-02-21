@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import HybridApp from './src/App';
 import {
   HashRouter as Router,
   Route,
@@ -19,17 +18,12 @@ import UserPage from '../UserPage/UserPage';
 import MapContainer from '../MapContainer/MapContainer';
 import './App.css';
 import CharacterCreationPage from '../CharacterCreationPage/CharacterCreationPage';
+import EditCharacter from '../CharacterCreationPage/EditCharacter';
 
 class App extends Component {
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
   }
-
-  // const App = (props) => {
-  //   return (
-  //     <HybridApp />
-  //   );
-  // }
 
   render() {
     return (
@@ -67,6 +61,11 @@ class App extends Component {
               path="/charactercreate"
               component={CharacterCreationPage}
             />
+            <ProtectedRoute
+              exact
+              path="/edit"
+              component={EditCharacter}
+              />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

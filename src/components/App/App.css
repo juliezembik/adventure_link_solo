@@ -9,11 +9,12 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
+    background-color: #9B7874;
+    color: #FF800D;
     width: auto;
-    height: 250px;
-    margin: 20px auto;
-    padding: 25px;
+    height: fill;
+    margin: 0px auto;
+    padding: 30px;
     border-radius: 2px;
 }
 
@@ -29,10 +30,10 @@ input {
 
 
 
-.log-in, .log-out, .register {
-  background-color: #00acb0;
+.log-in, .log-out, .register, .submit, .cancel, .edit {
+  background-color: #C0393D;
   border-radius: 4px;
-  color: #f8f8f8;
+  color: #FF800D;
   min-height: 50px;
   min-width: 100px;
   outline:0;
@@ -40,7 +41,7 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #C0393D;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */

@@ -18,6 +18,11 @@ function generate(element) {
     );
 }
 
+// handleDelete = (event) => {
+//     event.preventDefault();
+//     <Popup trigger={<button></button>}
+// }
+
 class ItemDetailItems extends Component {
 
     
@@ -43,7 +48,7 @@ class ItemDetailItems extends Component {
                                             <img src='/icons/delete.svg' alt="trash icon" />
                                         </IconButton>
                                     </ListItemSecondaryAction>
-                                </ListItem>,
+                                </ListItem>
                             )}
                         </List>
                     </div>

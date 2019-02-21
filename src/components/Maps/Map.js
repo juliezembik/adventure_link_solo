@@ -3,7 +3,9 @@ import GoogleMapReact from 'google-map-react';
 import { connect } from 'react-redux';
 import Player from './../Player/DefaultPlayer';
 import MapPotionItem from './MapPotionItem';
-// import Marker from 'google-map-react';
+
+
+
 
 // const AnyReactComponent = ({ text }) => <div>{text} X</div>;
 
@@ -29,7 +31,7 @@ class SimpleMap extends Component {
         return (
             // Important! Always set the container height explicitly
             <div style={{ height: '100vh', width: '100%' }}>
-                {JSON.stringify(this.props.map)}
+                {/* {JSON.stringify(this.props.map)} */}
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: `AIzaSyAPCKg-TyVSp-AA_O5hCFb2uz_vPnAxKmE` }}
                     defaultCenter={this.props.center}
@@ -40,15 +42,17 @@ class SimpleMap extends Component {
                         lng={this.props.center.lng}
                     />
                         
-                {this.props.map.map((waypoint, i) => {
+                {this.props.map.map((waypoints, i) => {
+                    let waypoint = Object.assign({}, waypoints);
                     return (
+                        
                         <MapPotionItem
                             key={i}
                             lat={waypoint.lat}
                             lng={waypoint.lng}
                             text={waypoint.text}
                         />
-                    );
+                    ); 
                     
                 })}
                 
