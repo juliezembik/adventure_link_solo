@@ -4,6 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 
+//this page consists the same form as create character page.
+//The only difference is the removal of race input, const, and ability to edit race.
+
 const gender = [
     {
         value: 'non-binary',

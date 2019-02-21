@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './UserPage.css'
-import Button from '@material-ui/core/Button';
 import ModalEdit from '../CharacterCreationPage/ModalEdit';
 
 // this could also be written with destructuring parameters as:
