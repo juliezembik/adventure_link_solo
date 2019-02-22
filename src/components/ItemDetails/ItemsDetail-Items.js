@@ -31,7 +31,7 @@ class ItemDetailItems extends Component {
             <div>
 
                 <Grid item xs={12} md={3}>
-                    <div className="item-list">
+                    <div className="inventory-list">
                             {generate(
                                 <ListItem>
                                     <ListItemAvatar>

@@ -16,6 +16,17 @@ function* getInventory(action) {
     }
 }
 
+function* addToInventory(action) {
+    try {
+        const id = action.payload.id;
+        const response = yield axios.post(`/api/items/inventory/${id}`, action.payload)
+        yield put({ type: 'FETCH_INVENTORY', payload: response.data })
+    } catch (error) {
+        console.log('Adding to inventory failed', error);
+        
+    }
+}
+
 function* getItemDescription() {
     try {
         const config = {
@@ -35,6 +46,7 @@ function* getItemDescription() {
 function* itemsSaga() {
     yield takeEvery('FETCH_INVENTORY', getInventory);
     yield takeEvery('FETCH_ITEM_DESCRIPTION', getItemDescription);
+    yield takeEvery('ADD_TO_INVENTORY', addToInventory);
 }
 
 export default itemsSaga;

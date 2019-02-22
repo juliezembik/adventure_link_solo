@@ -21,4 +21,8 @@ router.get('/inventory/:id', rejectUnauthenticated, (req, res) => {
     });
 })
 
+router.post('/inventory/:id', rejectUnauthenticated, (req, res) => {
+    const queryText = `INSERT INTO `
+})
+
 module.exports = router;
