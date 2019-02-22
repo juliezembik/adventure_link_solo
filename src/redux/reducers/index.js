@@ -6,6 +6,7 @@ import character from './characterPersonReducer';
 import map from './mapReducer';
 import item from './itemsReducer';
 import player from './playerOnMapReducer';
+import events from './eventsReducer';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   map, //sends items with lng and lat to append onto the map
   item, //calls items from data base
   player, //calls player sprite to move on map
+  events,
 });
 
 export default rootReducer;

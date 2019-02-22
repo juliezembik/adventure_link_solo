@@ -1,5 +1,6 @@
 .modal {
   font-size: 12px;
+  background-color: #9B7874;
 }
 .modal > .header {
   width: 100%;
@@ -10,11 +11,11 @@
 }
 .modal > .content {
   width: 100%;
-  padding: 10px 5px;
+  padding: 0px;
 }
 .modal > .actions {
   width: 100%;
-  padding: 10px 5px;
+  padding: 0px;
   margin: auto;
   text-align: center;
 }
@@ -22,12 +23,7 @@
   cursor: pointer;
   position: absolute;
   display: block;
-  padding: 2px 5px;
-  line-height: 20px;
-  right: -10px;
-  top: -10px;
+  padding: 0px;
   font-size: 24px;
   background: #9B7874;
-  border-radius: 18px;
-  border: 1px solid #cfcece;
 }

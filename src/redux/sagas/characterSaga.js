@@ -46,14 +46,16 @@ function* addCharacter(action) {
 
 function* updateCharacter(action) {
     try {
-        const id = action.payload.id;
+        console.log('action.payload.characterID', action.payload.character_id);
+        
+        const id = action.payload.character_id;
         const config = {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
         };
-        const response = yield axios.put(`api/character/${id}`, config);
+        const response = yield axios.put(`api/character/${id}`, action.payload, config);
         console.log('updateCharacter response: ', response.data);
-        const nextAction = { type: 'GET_USER_CHARACTER', payload: response.data };
+        const nextAction = { type: 'GET_USER_CHARACTER', payload: id };
         yield put(nextAction);
     } catch (error) {
         console.log('Unable to update character', error);

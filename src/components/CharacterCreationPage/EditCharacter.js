@@ -9,15 +9,15 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 const gender = [
     {
-        value: 'non-binary',
+        value: 'Non-binary',
         label: 'Non-binary'
     },
     {
-        value: 'female',
+        value: 'Female',
         label: 'Female'
     },
     {
-        value: 'male',
+        value: 'Male',
         label: 'Male'
     },
 ];
@@ -25,27 +25,46 @@ const gender = [
 
 const personClass = [
     {
-        value: 'fighter',
+        value: 'Fighter',
         label: 'Fighter'
     },
     {
-        value: 'paladin',
+        value: 'Paladin',
         label: 'Paladin'
     },
     {
-        value: 'cleric',
+        value: 'Cleric',
         label: 'Cleric'
+    }
+];
+
+const race = [
+    {
+        value: 'Human',
+        label: 'Human'
+    },
+    {
+        value: 'Elf',
+        label: 'Elf'
+    },
+    {
+        value: 'Orc',
+        label: 'Orc'
     }
 ];
 
 const alignment = [
     {
-        value: 'good',
+        value: 'Good',
         label: 'Good'
     },
     {
-        value: 'evil',
+        value: 'Evil',
         label: 'Evil'
+    },
+    {
+        value: 'Neutral',
+        label: 'Neutral'
     }
 ]
 
@@ -54,19 +73,20 @@ class EditCharacter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            character_id: this.props.user.id,
+            character_id: parseInt(props.user.id),
             character_name: '',
             gender: '',
+            race: '',
             person_class: '',
             alignment: '',
             background: ''
         }
     }
 
+    
     handleSubmit = () => {
         const action = { type: 'UPDATE_CHARACTER', payload: this.state }
         this.props.dispatch(action);
-        this.props.history.push('/home');
     }
 
     handleCharacterName = (event) => {
@@ -80,6 +100,13 @@ class EditCharacter extends Component {
         this.setState({
             ...this.state,
             gender: event.target.value,
+        })
+    }
+
+    handleRace = (event) => {
+        this.setState({
+            ...this.state,
+            race: event.target.value,
         })
     }
 
@@ -106,9 +133,7 @@ class EditCharacter extends Component {
 
     render() {
         return (
-            <div>
-                {/* {JSON.stringify(this.state)} */}
-                
+            <div>                
                 <form>
                     <h2>Edit Character</h2>
                     <TextField
@@ -143,11 +168,12 @@ class EditCharacter extends Component {
                         ))}
                     </TextField>
                     <TextField disabled
-                        label="Race"
+                        label=" "
                         value={this.props.character.race}
                         id="disabled"
                         style={{ width: 200, margin: 10 }}
                         margin="normal"
+                        onChange={this.handleRace}
                         className="input">
                     </TextField>
                     <TextField
@@ -205,7 +231,6 @@ class EditCharacter extends Component {
 
                     />
                     <Button className="submit" onClick={this.handleSubmit} variant="contained" >Submit</Button>
-                    <Button className="cancel" onClick={this.handleCancel} variant="contained" >Cancel</Button>
                     <Button className="delete" onClick={this.handleDelete} variant="contained" color="secondary" >Delete</Button>
 
 

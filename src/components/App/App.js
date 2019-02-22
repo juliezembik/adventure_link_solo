@@ -17,7 +17,6 @@ import ItemDetails from '../ItemDetails/ItemDetails';
 import UserPage from '../UserPage/UserPage';
 import MapContainer from '../MapContainer/MapContainer';
 import './App.css';
-import CharacterCreationPage from '../CharacterCreationPage/CharacterCreationPage';
 import EditCharacter from '../CharacterCreationPage/EditCharacter';
 
 class App extends Component {
@@ -47,19 +46,19 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={MapContainer}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
+            {/* <ProtectedRoute
+              exact
+              path="/testmap"
+              component={TestMap}
+            /> */}
             <ProtectedRoute
               exact
-              path="/mapcontainer"
-              component={MapContainer}
-            />
-            <ProtectedRoute
-              exact
-              path="/charactercreate"
-              component={CharacterCreationPage}
+              path="/userpage"
+              component={UserPage}
             />
             <ProtectedRoute
               exact

@@ -28,7 +28,6 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     if (req.isAuthenticated()) {
-        console.log('req.body', req.body);
         const queryText = `SELECT "person_character"."character_name", "person_character"."gender", "person_character"."alignment", "person_character"."race", "person_character"."person_class", "person_character"."background"
                            FROM "person_character"
                            JOIN "person"

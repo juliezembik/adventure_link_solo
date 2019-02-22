@@ -1,9 +1,15 @@
 div {
     display: center;
-    text-align: center;
+    text-align: justify;
     border: 3px;
 }
 
 html {
     background-color: #9B7874;
+}
+
+.main {
+    width: 75%;
+    justify-content: center;
+    margin: auto;
 }

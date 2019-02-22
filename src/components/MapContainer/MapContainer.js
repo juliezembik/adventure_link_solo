@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Map from './../Maps/Map';
+import { connect } from 'react-redux';
 
 class Container extends Component {
     render() {
@@ -11,4 +12,5 @@ class Container extends Component {
     }
 }
 
-export default Container;
+
+export default connect()(Container);

@@ -40,7 +40,7 @@ class UserPage extends Component {
       <div>
         {/* <p>Your ID is: {this.props.user.id}</p> */}
         {/* {JSON.stringify(this.props.character)} */}
-        <div>
+        <div className="main">
             <div>
               <p>Character name: {userChara.character_name}</p>
               <p>Gender: {userChara.gender}</p>
@@ -51,10 +51,10 @@ class UserPage extends Component {
             </div>
 
           
+          <ModalEdit />
 
         </div>
-        <ModalEdit />
-        <LogOutButton className="log-in" />
+        {/* <LogOutButton className="log-in" /> */}
       </div>
     );
 

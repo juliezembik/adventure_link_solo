@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import { Link } from 'react-router-dom';
 import './Nav.css';
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 const ITEM_HEIGHT = 48;
 
@@ -15,14 +16,13 @@ const options = [
   <Link to="/items">Inventory</Link>
 ];
 
-const player = `Player`;
+const player = 'Player';
 
 class Nav extends Component {
   constructor(){
     super();
   this.state = {
     anchorEl: null,
-    player: 'Player',
   };
   }
   handleClick = event => {
@@ -42,14 +42,14 @@ class Nav extends Component {
       <div className="nav-link">
         <IconButton
           aria-label="More"
-          aria-owns={open ? 'long-menu' : undefined}
+          aria-owns={open ? 'short-menu' : undefined}
           aria-haspopup="true"
           onClick={this.handleClick}
         >
           <MoreVertIcon />
         </IconButton>
         <Menu
-          id="long-menu"
+          id="short-menu"
           anchorEl={anchorEl}
           open={open}
           onClose={this.handleClose}
@@ -67,14 +67,17 @@ class Nav extends Component {
           ))}
         </Menu>
         <h3 id="welcome">
-          Welcome, {this.props.user.name ? <p>Player!</p> : <p>{this.props.user.username}!</p>}</h3>
+          Welcome {this.props.user.name ? <p>{this.props.user.username}</p> : 'to Dungeon Link!' }</h3>
         <div className="nav-right">
+        <center>
         <Link className="nav-link" to="/home">
           {/* Show this link if they are logged in or not,
                          but call this link 'Home' if they are logged in,
                         and call this link 'Login / Register' if they are not */}
-          {this.props.user.id ? 'Home' : 'Login / Register'}
+            {this.props.user.id ? ('Logout', <LogOutButton className="log-in" />
+             ) : 'Login / Register' }
         </Link>
+        </center>
         </div>
       </div>
     )

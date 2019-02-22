@@ -32,7 +32,6 @@ class ItemDetailItems extends Component {
 
                 <Grid item xs={12} md={3}>
                     <div className="item-list">
-                        <List>
                             {generate(
                                 <ListItem>
                                     <ListItemAvatar>
@@ -50,7 +49,7 @@ class ItemDetailItems extends Component {
                                     </ListItemSecondaryAction>
                                 </ListItem>
                             )}
-                        </List>
+
                     </div>
                 </Grid>
 

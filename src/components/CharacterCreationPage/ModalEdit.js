@@ -11,16 +11,13 @@ const ModalEdit = () => (
     <Popup trigger={<button className="edit"> Edit</button>} modal>
         {close => (
             <div className="modal">
-                <a className="close" onClick={close}>
-                    &times;
-        </a>
                 <div className="content">
                     {' '}
                     <EditCharacter />
                 </div>
                     <Button
                         className="cancel"
-                        onClick={() => { close() }}>  Close </Button>
+                        onClick={() => { close() }}>  Cancel </Button>
                 </div>
         )}
     </Popup>
