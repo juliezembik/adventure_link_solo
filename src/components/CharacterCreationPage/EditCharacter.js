@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
+import './Modal.css';
 
 //this page consists the same form as create character page.
 //The only difference is the removal of race input, const, and ability to edit race.
@@ -134,14 +135,14 @@ class EditCharacter extends Component {
     render() {
         return (
             <div>                
-                <form>
+                <form className="edit-form">
                     <h2>Edit Character</h2>
                     <TextField
                         id="standard-name"
-                        label="Character Name"
+                        label="Name"
                         value={this.state.character_name}
                         onChange={this.handleCharacterName}
-                        style={{ width: 200, margin: 10 }}
+                        style={{ width: 100, margin: 10 }}
                         margin="normal"
                         className="input"
                     />
@@ -171,7 +172,7 @@ class EditCharacter extends Component {
                         label=" "
                         value={this.props.character.race}
                         id="disabled"
-                        style={{ width: 200, margin: 10 }}
+                        style={{ width: 'auto', margin: 10 }}
                         margin="normal"
                         onChange={this.handleRace}
                         className="input">
@@ -227,11 +228,11 @@ class EditCharacter extends Component {
                         onChange={this.handleBackground}
                         margin="normal"
                         className="input"
-                        style={{ width: 400, margin: 10 }}
+                        style={{ width: 'auto', margin: 10 }}
 
                     />
-                    <Button className="submit" onClick={this.handleSubmit} variant="contained" >Submit</Button>
-                    <Button className="delete" onClick={this.handleDelete} variant="contained" color="secondary" >Delete</Button>
+                    <button className="submit" onClick={this.handleSubmit} variant="contained" >Submit</button>
+                    <button className="delete" onClick={this.handleDelete} variant="contained" color="secondary" >Delete</button>
 
 
                 </form>

@@ -2,7 +2,7 @@
     font-size: 24px;
     font-weight: 700;
     display: inline-block;
-    color: #FF800D;
+    color: #ffd700;
     padding-left: 10px;
 }
 
@@ -14,7 +14,7 @@
 .nav-link {
   display: flex;
   justify-content: space-between;
-  color: #FF800D;
+  color: #ffd700;
   background-color: #C0393D;
   text-align: center;
   padding: 10px;

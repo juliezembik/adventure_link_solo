@@ -10,7 +10,7 @@ body {
 
 form {
     background-color: #9B7874;
-    color: #FF800D;
+    color: #FFD700;
     width: auto;
     height: 450px;
     margin: 0px auto;
@@ -33,7 +33,7 @@ input {
 .log-in, .log-out, .register, .submit, .cancel, .edit {
   background-color: #C0393D;
   border-radius: 4px;
-  color: #FF800D;
+  color: #ffd700;
   min-height: 50px;
   min-width: 100px;
   outline:0;

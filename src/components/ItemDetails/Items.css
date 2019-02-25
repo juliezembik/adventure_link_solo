@@ -1,3 +1,8 @@
+
+
 .inventory-list {
-    background-color: black;
+    background-color:lightgrey;
+    margin: 0px;
+    padding: 0px;
+    align-items: flex-start;
 }

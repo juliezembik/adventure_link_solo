@@ -7,7 +7,12 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import './Items.css'
 
 
 function generate(element) {
@@ -24,16 +29,22 @@ function generate(element) {
 // }
 
 class ItemDetailItems extends Component {
+    state = {
+        open: true,
+    };
 
+    handleClick = () => {
+        this.setState(state => ({ open: !state.open }));
+    };
     
     render() {
         return (
             <div>
 
                 <Grid item xs={12} md={3}>
-                    <div className="inventory-list">
+                    <div>
                             {generate(
-                                <ListItem>
+                                <ListItem className="inventory-list">
                                     <ListItemAvatar>
                                         <Avatar>
                                             <img src={this.props.iDetails.item_img} alt="" />

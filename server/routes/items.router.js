@@ -21,6 +21,10 @@ router.get('/inventory/:id', rejectUnauthenticated, (req, res) => {
     });
 })
 
+router.delete('/inventory/:id', rejectUnauthenticated, (req, res) => {
+    let
+})
+
 router.post('/inventory/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `INSERT INTO `
 })

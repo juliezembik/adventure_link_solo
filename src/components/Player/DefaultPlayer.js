@@ -9,8 +9,8 @@ function Player() {
                 position: 'relative',
                 backgroundImage: `url('/player/defaultplayer.png')`,
                 backgroundPosition: `0 0`,
-                width: '29px',
-                height: '32px',
+                width: '36px',
+                height: '61px',
             }}        
         />
     )

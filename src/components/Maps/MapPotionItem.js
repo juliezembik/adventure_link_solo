@@ -27,12 +27,13 @@ class MapPotionItem extends Component {
 
     render() {
         const style = ({
-            height: '200px',
+            height: 'auto',
             width: '160px',
             backgroundColor: '#FFFFFF',
             margin: '10px',
-            radius: '10%',
+            borderRadius: '10%',
             padding: '10px',
+            border: '1px',
 
 
         })
@@ -47,9 +48,10 @@ class MapPotionItem extends Component {
                 {JSON.stringify(this.props.text)} */}
                     {this.state.isOpen ? (<div onClick={this.handleToggle}><QuestMarker /></div>) 
                         : 
-                    (<div style={style} onClick={this.handleToggle}><p>{this.props.eventName}</p>
+                    (<div style={style} onClick={this.handleToggle}><h3>{this.props.eventName}</h3>
                                                                         <p>{this.props.event_description}</p>
-                                                                        <button onClick={this.addToInventory}>Take this!</button></div>) }
+                                                                        <button onClick={this.addToInventory}>Do it!</button>
+                                                                        <button>Cancel</button></div>) }
 
             </div>
             </div>
