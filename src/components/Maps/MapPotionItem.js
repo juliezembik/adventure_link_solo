@@ -34,6 +34,7 @@ class MapPotionItem extends Component {
             borderRadius: '10%',
             padding: '10px',
             border: '1px',
+            fontSize: '12px'
 
 
         })

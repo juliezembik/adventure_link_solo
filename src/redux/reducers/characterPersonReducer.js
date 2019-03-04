@@ -23,6 +23,8 @@ const getUserCharacter = (state = '', action) => {
     }
 }
 
+export { characterPersonReducer };
+
 export default combineReducers({
     characterPersonReducer,
     getUserCharacter,
