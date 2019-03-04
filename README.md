@@ -12,42 +12,33 @@ Dungeon Link is a mobile app game that can work across iOS and Android. The miss
 8. PostgreSQL
 
 
-## Create database and table
+## Prerequisites
 
-Create a new database called `prime_app` and create a `person` table:
+Software required for application to load:
 
-```SQL
-CREATE TABLE "person" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
+1. Node.js
+2. Axios
+3. PostgreSQL
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
 
-## Development Setup Instructions
+## Installing
 
-* Run `npm install`
-* Create a `.env` file at the root of the project and paste this line into the file:
-    ```
-    SERVER_SESSION_SECRET=superDuperSecret
-    ```
-    While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run server`
-* Run `npm run client`
-* Navigate to `localhost:3000`
+Steps to get the development environment running.
 
-## Debugging
+Download this project.
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
+> npm install
+> 
+> npm run server
+> 
+> npm run client
 
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
 
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
+## Screenshot
 
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
+![](https://imgur.com/PoYBloi)
+![](https://imgur.com/9QF4dVh)
+![](https://imgur.com/lyvFuPf)
 
 
 ## Production Build
