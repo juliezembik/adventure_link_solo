@@ -36,9 +36,9 @@ Download this project.
 
 ## Screenshot
 
-(https://imgur.com/PoYBloi)
-(https://imgur.com/9QF4dVh)
-(https://imgur.com/lyvFuPf)
+![](https://imgur.com/PoYBloi.png)
+![](https://imgur.com/9QF4dVh.png)
+![](https://imgur.com/lyvFuPf.png)
 
 
 ## Production Build
